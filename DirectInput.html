@@ -1,0 +1,23 @@
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://192.168.1.12/ocpu/tmp/x0772fe3978/stdout/text";
+// to generate the url above, navigate to http://192.168.1.12/ocpu/test/
+// run POST against http://192.168.1.12/ocpu/library/gvis/R/vis4/stout endpoint
+// the returned result will have the path
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = xmlhttp.responseText;
+       myFunction(myArr);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+// This function loads the gvis output into the specified div
+function myFunction(arr) {
+    jQuery("#id01").load(url);
+};
+</script>
